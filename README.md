@@ -1,7 +1,7 @@
-# gapstar-Assessment
+# image-Assessment
 
-## Just Clonn the repository 
+## Just Clone the repository 
 01) run "npm install"
 02) run "npm start"
 
-Then you can see new blended image in asset folder
+Then you can see the new blended image in the asset folder

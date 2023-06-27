@@ -12,9 +12,9 @@ const {
 const downloadImage = (req) => {
   return new Promise((resolve, reject) => {
     request.get(req, (error, response, body) => {
-      if (error) reject(error);
-      if (response.statusCode != 200) {
-        reject("Invalid status code <" + response.statusCode + ">");
+      if (error) return reject(error);
+      if (response?.statusCode != 200) {
+       return reject("Invalid status code <" + response?.statusCode + ">");
       }
       resolve(body);
     });
@@ -42,7 +42,7 @@ const blendImage = (firstImage, secondImage) => {
         format: "jpeg",
       },
       (error, data) => {
-        if (error) reject(error);
+        if (error) return reject(error);
         resolve(data);
       }
     );
@@ -54,7 +54,7 @@ const saveBlendImage = (blendedImage) => {
   return new Promise((resolve, reject) => {
     writeFile(fileSavePath, blendedImage, "binary", (err) => {
       if (err) {
-        reject(err);
+        return reject(err);
       }
       console.log("The file was saved!");
       resolve();
